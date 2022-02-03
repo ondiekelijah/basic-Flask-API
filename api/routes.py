@@ -1,11 +1,11 @@
 from flask import (
     Flask,
     render_template,
+    Blueprint
 )
-from .app import create_app
 
 # Create an application instance
-app = create_app()
+app=Blueprint("root",__name__)
 
 @app.post("/", strict_slashes=False)
 def create_post():
@@ -26,6 +26,3 @@ def update_post():
 def delete_post():
     return {"message": "post deleted"}
 
-
-if __name__ == "__main__":
-    app.run(debug=True)
