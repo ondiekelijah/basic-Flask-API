@@ -1,4 +1,4 @@
-# Pthon flask `API`
+# Python flask `API`
 
 Building apps with `flask` is amazing
 
