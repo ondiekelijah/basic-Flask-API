@@ -4,7 +4,7 @@
 **Windows**
           
 ```bash
-git clone https://github.com/Dev-Elie/Flask-API-directory-layout.git
+git clone https://github.com/Dev-Elie/Flask-API-boilerplate.git Flask-API
 cd Flask-API
 py -3 -m venv venv
 ```
@@ -12,7 +12,7 @@ py -3 -m venv venv
 **macOS/Linux**
           
 ```bash
-git clone https://github.com/Dev-Elie/Flask-API-directory-layout.git
+git clone https://github.com/Dev-Elie/Flask-API-boilerplate.git Flask-API
 cd Flask-API
 python3 -m venv venv
 ```
