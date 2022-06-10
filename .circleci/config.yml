@@ -1,19 +1,22 @@
-version: 2
+version: 2 # CircleCI version
 jobs:
-  build:
-    docker:
-      - image: cimg/python:3.9.2
+  build: # name of this job
+    docker: # executor
+      - image: cimg/python:3.9.2 # Docker image(CircleCI authored) version
 
     steps:
-      - checkout
+      - checkout # Retrieve code from GitHub
+      # Create a venv, activate it then install the pip packages
       - run:
-          name: Install pip packages
+          name: Install pip packages # name of this action
           command: |
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
+      # run tests using pytest in verbose mode
       - run:
           name: Test with pytest
           command: |
             . venv/bin/activate
             pytest -v
+
