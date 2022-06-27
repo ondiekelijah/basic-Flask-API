@@ -4,6 +4,12 @@ from flask import request,redirect,jsonify
 
 app = create_app()
 
+# Home endpoint
+@app.route('/')
+def home():
+    return 'Welcome to the API'
+    
+
 @app.route("/api/v1/add", methods=['GET','POST'])
 def create():
 
