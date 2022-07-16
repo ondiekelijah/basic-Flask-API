@@ -1,4 +1,4 @@
- ----------------------------------------- Initial Set Up Instructions -----------------------------------------
+## Initial Set Up Instructions
 ### 1 .Clone the git repo and create an environment 
                     
 **Windows**
