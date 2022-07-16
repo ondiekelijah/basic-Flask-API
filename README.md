@@ -1,3 +1,5 @@
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Dev-Elie/Flask-API-boilerplate/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Dev-Elie/Flask-API-boilerplate/tree/main)
+
 ## Initial Set Up Instructions
 ### 1 .Clone the git repo and create an environment 
                     
