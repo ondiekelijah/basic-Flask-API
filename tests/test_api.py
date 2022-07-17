@@ -1,5 +1,5 @@
-def test_new_user(client, init_database):
-    path ="api/v1/add"
+def test_create_user(client, init_database):
+    path ="api/v1/users/add"
     response =client.post(path,
      json ={
          "name":"Greg Isaac", 
@@ -13,7 +13,7 @@ def test_new_user(client, init_database):
 
 def test_fetch_user(client, init_database):
 
-    path = "api/v1/1"
+    path = "api/v1/users/1"
     response = client.get(path)
     assert b'{"email":"test1@gmail.com","id":1,"name":"Test User 1"}\n' in response.data
 
@@ -26,7 +26,7 @@ def test_fetch_users(client, init_database):
 
 
 def test_update_user(client, init_database):
-    path ="api/v1/1/update"
+    path ="api/v1/users/1/update"
     response =client.post(path,
      json ={
          "id":1,
@@ -37,7 +37,7 @@ def test_update_user(client, init_database):
     assert b'{"email":"hunterfields@gmail.com","id":1,"name":"hunter"}\n' in response.data
 
 def test_delete_user(client, init_database):
-    path= "api/v1/1/delete"
+    path= "api/v1/users/1/delete"
     response= client.post(path)
     assert response.status_code == 200
     assert b'User has been deleted' in response.data

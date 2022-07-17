@@ -10,7 +10,7 @@ def home():
     return 'Welcome to the API'
     
 
-@app.route("/api/v1/add", methods=['GET','POST'])
+@app.route("/api/v1/users/add", methods=['GET','POST'])
 def create():
 
     name = request.json["name"]
@@ -29,7 +29,7 @@ def create():
     
     return user_schema.dump(created_user)
 
-@app.route("/api/v1/<int:id>",methods=['GET','POST'])
+@app.route("/api/v1/users/<int:id>",methods=['GET','POST'])
 def RetrieveSingleUser(id):
     user = User.query.filter_by(id=id).first()
     return user_schema.dump(user) 
@@ -41,7 +41,7 @@ def RetrieveSingleUsers():
     return jsonify(all_users)
 
 
-@app.route("/api/v1/<int:id>/update", methods=['GET','POST'])
+@app.route("/api/v1/users/<int:id>/update", methods=['GET','POST'])
 def update(id):
     user=User.query.filter_by(id=id).first()
 
@@ -56,7 +56,7 @@ def update(id):
 
     return user_schema.dump(user) 
 
-@app.route("/api/v1/<int:id>/delete", methods=['GET','POST'])
+@app.route("/api/v1/users/<int:id>/delete", methods=['GET','POST'])
 def delete(id):
     user=User.query.filter_by(id=id).first()
     if request.method == "POST":

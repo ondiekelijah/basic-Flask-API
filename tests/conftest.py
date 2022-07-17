@@ -1,18 +1,17 @@
 # Create a test client using the Flask application configured for testing
 import pytest
 import config
-from api.app import create_app, db
+from api.app import db
 from api.routes import app
 from api.models import User
 
 
 @pytest.fixture
 def client():
-    # app = create_app()
     app.config.from_object(config.TestingConfig)
-    with app.test_client() as client:
-        with app.app_context():
-            yield client
+    with app.test_client() as client: # app.test_client() is a function that returns a Flask application configured for testing
+        with app.app_context(): # This is required to initialize the database
+            yield client # yield is used to return the client to the test function
 
 
 @pytest.fixture()
@@ -43,4 +42,5 @@ def init_database():
 
     yield db  # this is where the testing happens!
     db.session.remove()  # looks like db.session.close() would work as well
+    # Drop the database table
     db.drop_all()
