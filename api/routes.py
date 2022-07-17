@@ -5,14 +5,13 @@ from flask import request,redirect,jsonify
 app = create_app()
 
 # Home endpoint
-@app.route('/')
+@app.get('/')
 def home():
     return 'Welcome to the API'
     
 
-@app.route("/api/v1/users/add", methods=['GET','POST'])
+@app.post("/api/v1/users/add")
 def create():
-
     name = request.json["name"]
     email = request.json["email"]
     password = request.json["password"]
@@ -29,26 +28,26 @@ def create():
     
     return user_schema.dump(created_user)
 
-@app.route("/api/v1/users/<int:id>",methods=['GET','POST'])
+@app.get("/api/v1/users/<int:id>")
 def RetrieveSingleUser(id):
     user = User.query.filter_by(id=id).first()
     return user_schema.dump(user) 
 
-@app.route("/api/v1/users", methods=['GET','POST'])
+@app.get("/api/v1/users")
 def RetrieveSingleUsers():
     users = User.query.all()
     all_users = users_schema.dump(users) 
     return jsonify(all_users)
 
 
-@app.route("/api/v1/users/<int:id>/update", methods=['GET','POST'])
+@app.put("/api/v1/users/<int:id>/update")
 def update(id):
     user=User.query.filter_by(id=id).first()
 
     if user:
         name = request.json["name"]
         email = request.json["email"]
-        # password = request.json["password"]
+
         user.name = name
         user.email = email
 
@@ -56,7 +55,7 @@ def update(id):
 
     return user_schema.dump(user) 
 
-@app.route("/api/v1/users/<int:id>/delete", methods=['GET','POST'])
+@app.delete("/api/v1/users/<int:id>/delete")
 def delete(id):
     user=User.query.filter_by(id=id).first()
     if request.method == "POST":
