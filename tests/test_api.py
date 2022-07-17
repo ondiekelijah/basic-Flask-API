@@ -1,18 +1,14 @@
-import json
-from unicodedata import name
-from urllib import response
-from api.models import User
-
-
 def test_new_user(client, init_database):
-    """
-    GIVEN the User model
-    WHEN a new user is created
-    THEN check that the name & email fields are defined correctly
-    """
-    user = User(name='Cheryl', email="kiddo@gmail.com", password="12345")
-    assert user.name == 'Cheryl'
-    assert user.email == 'kiddo@gmail.com'
+    path ="api/v1/add"
+    response =client.post(path,
+     json ={
+         "name":"Greg Isaac", 
+         "email":"doeg9@gmail.com",
+         "password":"12345",
+     },
+    )
+    assert response.status_code == 200
+    assert b'{"email":"doeg9@gmail.com","id":4,"name":"Greg Isaac"}\n' in response.data
 
 
 def test_fetch_user(client, init_database):
