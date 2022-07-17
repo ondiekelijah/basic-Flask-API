@@ -1,4 +1,7 @@
- ----------------------------------------- Initial Set Up Instructions -----------------------------------------
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Dev-Elie/basic-Flask-API/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Dev-Elie/basic-Flask-API/tree/main)
+[![Build, Test and Deploy to Azure](https://github.com/Dev-Elie/basic-Flask-API/actions/workflows/main_flaskapitemplate.yml/badge.svg)](https://github.com/Dev-Elie/basic-Flask-API/actions/workflows/main_flaskapitemplate.yml)
+
+## Initial Set Up Instructions
 ### 1 .Clone the git repo and create an environment 
                     
 **Windows**
