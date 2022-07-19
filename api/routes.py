@@ -29,12 +29,12 @@ def create():
     return user_schema.dump(created_user)
 
 @app.get("/api/v1/users/<int:id>")
-def RetrieveSingleUser(id):
+def get_user(id):
     user = User.query.filter_by(id=id).first()
     return user_schema.dump(user) 
 
 @app.get("/api/v1/users")
-def RetrieveSingleUsers():
+def get_users():
     users = User.query.all()
     all_users = users_schema.dump(users) 
     return jsonify(all_users)
@@ -64,7 +64,3 @@ def delete(id):
            db.session.commit()
 
     return jsonify("User has been deleted")
-
-
-# if __name__ == "__main__":
-#     app.run(debug=True)
