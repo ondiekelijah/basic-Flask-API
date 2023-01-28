@@ -45,11 +45,12 @@ def update(id):
     user=User.query.filter_by(id=id).first()
 
     if user:
-        name = request.json["name"]
-        email = request.json["email"]
-
-        user.name = name
-        user.email = email
+        if "name" in request.json:
+            user.name = request.json["name"]
+        if "email" in request.json:
+            user.email = request.json["email"]
+        if "password" in request.json:
+            user.password = request.json["password"]
 
         db.session.commit()
 
@@ -58,9 +59,9 @@ def update(id):
 @app.delete("/api/v1/users/<int:id>/delete")
 def delete(id):
     user=User.query.filter_by(id=id).first()
-    if request.method == "POST":
-        if user:
-           db.session.delete(user)
-           db.session.commit()
+    
+    if user:
+        db.session.delete(user)
+        db.session.commit()
 
     return jsonify("User has been deleted")

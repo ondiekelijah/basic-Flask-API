@@ -2,9 +2,7 @@ from api.app import create_app,db
 from api.models import User
 
 
-def deploy():
-
-	"""Run deployment tasks."""
+def init_db():
 
 	app = create_app()
 	app.app_context().push()
@@ -12,4 +10,4 @@ def deploy():
 	db.create_all()
 
 	
-deploy()
+init_db()

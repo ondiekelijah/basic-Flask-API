@@ -38,12 +38,15 @@ Applies for windows/macOS/Linux
 
 ```pip install -r requirements.txt```
 
+### 4. Initialize a database
 
-### 4. Run the application 
+`python db_init.py`
+
+### 5. Run the application 
 
 
 `python wsgi.py`
 
-### 5. Running tests
+### 6. Running tests
 
 `pytest -v`
